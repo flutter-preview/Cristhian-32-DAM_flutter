@@ -31,13 +31,16 @@ class TokenModel {
   String accessToken;
   String tokenType;
   String expiresAt;
+  //String roles;
 
   TokenModel(
       {required this.status,
       required this.message,
       required this.accessToken,
       required this.tokenType,
-      required this.expiresAt});
+      required this.expiresAt
+      //required this.roles
+      });
 
   factory TokenModel.fromJson(Map<String, dynamic> json) {
     return TokenModel(
@@ -46,6 +49,7 @@ class TokenModel {
       accessToken: json['access_token'],
       tokenType: json['token_type'],
       expiresAt: json['expires_at'],
+      //roles: json['roles'],
     );
   }
   Map<String, dynamic> toJson() {
@@ -55,6 +59,7 @@ class TokenModel {
       'access_token': accessToken,
       'token_type': tokenType,
       'expires_at': expiresAt,
+      //'roles': roles,
     };
   }
 }

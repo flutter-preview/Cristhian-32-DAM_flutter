@@ -5,6 +5,7 @@ import 'package:flutter_manager/apis/user_api.dart';
 import 'package:flutter_manager/util/TokenUtil.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_manager/screens/home_screen.dart';
 
 class MainLogin extends StatelessWidget {
   @override
@@ -54,6 +55,11 @@ class _LoginPageState extends State<LoginPage> {
 
         if (logged == true) {
           print("si se logeo");
+
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => HomeScreen()),
+          );
         }
       }).catchError((onError) {
         print(onError.toString());
