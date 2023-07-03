@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_manager/screens/tables/actividad.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Institucions Name'),
+        title: Text('Instituciones Name'),
+        backgroundColor: Color.fromARGB(255, 71, 196, 22),
+        // Cambiar el color del AppBar
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              // Lógica al presionar el botón de búsqueda
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.notifications),
+            onPressed: () {
+              // Lógica al presionar el botón de notificaciones
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.only(bottom: 100),
@@ -32,13 +49,19 @@ class HomeScreen extends StatelessWidget {
                 title: 'ACTIVIDADES O EVENTOS',
                 description: 'Podras CREAR Actividades o Eventos',
                 onPressed: () {
-                  // Acción para la acción 1
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          ActividadScreen('Título de la actividad'),
+                    ),
+                  );
                 },
               ),
               SizedBox(height: 10),
               ActionCard(
                 title: 'ASISTENCIA',
-                description: 'LISTA asistencia de tus evnetos',
+                description: 'Podras LISTAR asistencia de tus eventos',
                 onPressed: () {
                   // Acción para la acción 2
                 },
@@ -94,18 +117,20 @@ class ActionCard extends StatelessWidget {
             title,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Text(
             description,
-            style: TextStyle(fontSize: 12),
+            style: TextStyle(fontSize: 14),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 20),
-          ElevatedButton(
+          SizedBox(height: 10),
+          ElevatedButton.icon(
             onPressed: onPressed,
-            child: Text('Ir'),
+            label: Text(''),
+            icon: Icon(Icons.arrow_forward), // Icono a utilizar
+            // Dejar el texto vacío
             style: ElevatedButton.styleFrom(
-              primary: Color.fromARGB(255, 4, 247, 4), // Color del botón
+              primary: Color.fromARGB(255, 71, 196, 22), // Color del botón
             ),
           ),
         ],
